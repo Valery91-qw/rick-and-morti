@@ -67,7 +67,8 @@ export const Character = () => {
         <div>
             {
                 data
-                    ?<><h2>{data.character.status}</h2>
+                    ?<>
+                        <h2>{data.character.status}</h2>
                         <img src={data.character.image}/>
                         <div>{data.character.name}</div>
                         <div>{data.character.gender}</div>
