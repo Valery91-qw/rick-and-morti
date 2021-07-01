@@ -1,15 +1,14 @@
 import React from 'react';
-import {Characters} from "./characters/Characters";
-
+import {Routes} from "./Route/Routes";
 
 
 function App() {
-  return (
-        <div>
-            <h2>Hello</h2>
-            <Characters />
-        </div>
-  );
+    return (
+            <div>
+                <h2>Hello</h2>
+                <Routes/>
+            </div>
+    );
 }
 
 

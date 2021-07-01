@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ApolloProvider, ApolloClient, InMemoryCache} from "@apollo/client";
+import {BrowserRouter} from "react-router-dom";
 
 const client = new ApolloClient({
     uri: 'https://rickandmortyapi.com/graphql',
@@ -11,13 +12,14 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <React.StrictMode>
-      <ApolloProvider client={client}>
-         <App />
-      </ApolloProvider>
-  </React.StrictMode>,
-  document.getElementById('root'),
-    () =>console.log('render')
+    <React.StrictMode>
+        <BrowserRouter>
+            <ApolloProvider client={client}>
+                <App/>
+            </ApolloProvider>
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
