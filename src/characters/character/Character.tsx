@@ -12,13 +12,12 @@ type CharacterType = {
 
 export const Character = (props: CharacterType) => {
 
-
-
     return(
         <div>
             <img className={style.img} src={props.character.image}/>
             <span>{props.character.name}</span>
             <div>{props.character.status}</div>
+            <Link to={`/detailedCharacter/${props.character.id}`}>Detail</Link>
         </div>
     )
 }

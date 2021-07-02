@@ -1,5 +1,5 @@
 import {gql, useQuery} from "@apollo/client";
-import {useState} from "react";
+import React, {useState} from "react";
 import {Character} from "./character/Character";
 
 const charactersQuery = gql`
@@ -53,12 +53,12 @@ export const Characters = () => {
 
     const characters = data ? [...data.characters.results] : null;
 
-
-    return (
+    return (<>
         <div>
             {
                 characters ? characters.map((el, i) => <Character character={el} key={i} />) : null
             }
         </div>
-    )
+    </>)
 }
+

@@ -5,7 +5,7 @@ import {Routes} from "./Route/Routes";
 function App() {
     return (
             <div>
-                <h2>Hello</h2>
+                {/*<Header />*/}
                 <Routes/>
             </div>
     );
