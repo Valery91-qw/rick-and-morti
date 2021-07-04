@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import style from "./Character.module.css"
 
 type CharacterType = {
@@ -13,11 +13,13 @@ type CharacterType = {
 export const Character = (props: CharacterType) => {
 
     return(
-        <div>
+        <div className={style.wrapper}>
             <img className={style.img} src={props.character.image}/>
-            <span>{props.character.name}</span>
+            <div>{props.character.name}</div>
             <div>{props.character.status}</div>
-            <Link to={`/detailedCharacter/${props.character.id}`}>Detail</Link>
+            <NavLink
+                className={style.link}
+                to={`/detailedCharacter/${props.character.id}`}>Detail</NavLink>
         </div>
     )
 }

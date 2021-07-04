@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    position: relative;
+    width: 1080px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.wrapper:first-child div {
+    margin-top: 1em;
+}
+.buttonPrev {
+    position: absolute;
+    top: 1em;
+    bottom: 0;
+    width: 6em;
+    left: -8em;
+}
+.buttonNext {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 6em;
+    right: -8em;
+}

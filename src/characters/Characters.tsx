@@ -1,51 +1,15 @@
-import {gql, useQuery} from "@apollo/client";
+import {useQuery} from "@apollo/client";
 import React, {useState} from "react";
 import {Character} from "./character/Character";
+import {CharactersType, CharactersVarType, queryQL} from "../dal/graphql";
+import style from "./Characters.module.css"
 
-const charactersQuery = gql`
-    query nextPage($page: Int!){
-        characters(page: $page) {
-            info {
-                count
-                pages
-                next
-                prev
-            }
-            results {
-                id
-                name
-                status
-                image
-            }
-        }
-    }            `
-
-type CharactersType = {
-    characters: {
-        info: {
-            count: number
-            pages: number
-            next: number
-            prev: number
-        }
-        results: Array <{
-            id: number
-            name: string
-            status: string
-            image: string
-        }>
-    }
-}
-
-type VarCharactersType = {
-    page: number
-}
 
 export const Characters = () => {
 
     const [page, setPage] = useState(1)
 
-    const {data, loading, error, previousData} = useQuery<CharactersType, VarCharactersType>(charactersQuery, {
+    const {data, loading, error, previousData} = useQuery<CharactersType, CharactersVarType>(queryQL.characters, {
         variables: {page}
     })
 
@@ -53,12 +17,14 @@ export const Characters = () => {
 
     const characters = data ? [...data.characters.results] : null;
 
-    return (<>
-        <div>
+    return (
+        <div className={style.wrapper}>
+            <button className={style.buttonPrev}>Previous</button>
             {
                 characters ? characters.map((el, i) => <Character character={el} key={i} />) : null
             }
+            <button className={style.buttonNext}>Next</button>
         </div>
-    </>)
+    )
 }
 

@@ -1,35 +1,13 @@
-import {Link, useParams } from "react-router-dom"
-import {gql, useQuery} from "@apollo/client";
+import { Link, useParams } from "react-router-dom"
+import { useQuery } from "@apollo/client";
+import {CharacterType, CharacterVarType, queryQL } from "../../../dal/graphql";
 
-const characterRes = gql`
-    query currentCharacter($id: ID!) {
-        character(id: $id) {
-            name
-            status
-            species
-            type
-            gender
-            image
-        }
-    }        `
-type CharacterType = {
-    character: {
-        name: string
-        gender: string
-        species: string
-        status: string
-        image: string
-        type: string
-    }
-}
-type VarType = {
-    id: string
-}
+
 export const DetailedCharacter = () => {
 
     const { id }: {id: string} = useParams()
 
-    const {data, loading, error} = useQuery<CharacterType, VarType>(characterRes, {
+    const {data, loading, error} = useQuery<CharacterType, CharacterVarType>(queryQL.detailCharacter, {
         variables: {id}
     })
 

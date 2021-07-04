@@ -1,0 +1,9 @@
+.wrapper {
+    min-height: 80px;
+    text-align: center;
+    padding: 2em 0;
+    background-color: #A62A00;
+}
+.wrapper span {
+    color: #FF4100;
+}

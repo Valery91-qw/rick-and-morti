@@ -1,3 +1,33 @@
+.wrapper {
+    width: 200px;
+    background-color: #AEF26D;
+    border-radius: .5em;
+    box-shadow: 0 0 .6em #499500;
+    text-align: center;
+}
 .img {
-    width: 150px;
+    width: 100px;
+    border-radius: .5em;
+    border: 3px solid #499500;
+}
+.link {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    margin: .3em;
+    padding: .3em;
+    border-radius: .5em;
+    color: #fff;
+    background-color: #A62A00;
+}
+.link:hover {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    margin: .3em;
+    padding: .3em;
+    border-radius: .5em;
+    color: #AEF26D;
+    background-color: #FF9773;
+    transition: 0.3s linear;
 }
