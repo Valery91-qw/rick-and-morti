@@ -1,5 +1,6 @@
 .wrapper {
-    width: 200px;
+    width: calc(25% - 1em);
+    margin: 0 .5em;
     background-color: #AEF26D;
     border-radius: .5em;
     box-shadow: 0 0 .6em #499500;

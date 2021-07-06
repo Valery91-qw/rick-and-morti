@@ -13,17 +13,24 @@ export const Characters = () => {
         variables: {page}
     })
 
+    const nextPage = () => {
+        setPage(page + 1)
+    }
+    const prevPage = () => {
+        setPage(page - 1)
+    }
+
     if(loading) return <div>Loading</div>
 
     const characters = data ? [...data.characters.results] : null;
 
     return (
         <div className={style.wrapper}>
-            <button className={style.buttonPrev}>Previous</button>
+            {data?.characters.info.prev && <button onClick={prevPage}  className={style.buttonPrev}>Previous</button> }
             {
-                characters ? characters.map((el, i) => <Character character={el} key={i} />) : null
+                characters && characters.map((el, i) => <Character character={el} key={i} />)
             }
-            <button className={style.buttonNext}>Next</button>
+            {data?.characters.info.next && <button onClick={nextPage} className={style.buttonNext}>Next</button>}
         </div>
     )
 }

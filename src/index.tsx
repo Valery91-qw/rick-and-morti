@@ -6,9 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import {ApolloProvider, ApolloClient, InMemoryCache} from "@apollo/client";
 import {BrowserRouter} from "react-router-dom";
 
+
+
+
 const client = new ApolloClient({
     uri: 'https://rickandmortyapi.com/graphql',
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
 })
 
 ReactDOM.render(

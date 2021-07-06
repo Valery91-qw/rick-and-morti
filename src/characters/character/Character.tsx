@@ -14,12 +14,12 @@ export const Character = (props: CharacterType) => {
 
     return(
         <div className={style.wrapper}>
-            <img className={style.img} src={props.character.image}/>
+            <img className={style.img} src={props.character.image} alt="error"/>
             <div>{props.character.name}</div>
             <div>{props.character.status}</div>
             <NavLink
                 className={style.link}
-                to={`/detailedCharacter/${props.character.id}`}>Detail</NavLink>
+                to={`/detailedCharacter/${props.character.id}`}>Details</NavLink>
         </div>
     )
 }
