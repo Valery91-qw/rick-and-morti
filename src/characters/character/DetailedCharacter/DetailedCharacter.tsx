@@ -7,7 +7,7 @@ export const DetailedCharacter = () => {
 
     const { id }: {id: string} = useParams()
 
-    const {data, loading, error} = useQuery<CharacterType, CharacterVarType>(queryQL.detailCharacter, {
+    const {data, loading} = useQuery<CharacterType, CharacterVarType>(queryQL.detailCharacter, {
         variables: {id}
     })
 

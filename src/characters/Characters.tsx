@@ -9,7 +9,7 @@ export const Characters = () => {
 
     const [page, setPage] = useState(1)
 
-    const {data, loading, error, previousData} = useQuery<CharactersType, CharactersVarType>(queryQL.characters, {
+    const {data, loading} = useQuery<CharactersType, CharactersVarType>(queryQL.characters, {
         variables: {page}
     })
 
