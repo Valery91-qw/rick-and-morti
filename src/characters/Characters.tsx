@@ -1,28 +1,28 @@
-import {useQuery} from "@apollo/client";
-import React, {useState} from "react";
+import React from "react";
 import {Character} from "./character/Character";
-import {CharactersType, CharactersVarType, queryQL} from "../dal/graphql";
+import {CharactersType } from "../dal/graphql";
 import style from "./Characters.module.css"
 
 
-export const Characters = () => {
+type CharactersPropsType = {
+    currentPage: number
+    setCurrentPage: (page: number) => void
+    loading: boolean
+    data: CharactersType | undefined
+}
 
-    const [page, setPage] = useState(1)
-
-    const {data, loading} = useQuery<CharactersType, CharactersVarType>(queryQL.characters, {
-        variables: {page}
-    })
+export const Characters = ({currentPage, setCurrentPage, loading, data} : CharactersPropsType) => {
 
     const nextPage = () => {
-        setPage(page + 1)
+        setCurrentPage(currentPage + 1)
     }
     const prevPage = () => {
-        setPage(page - 1)
+        setCurrentPage(currentPage - 1)
     }
 
-    if(loading) return <div>Loading</div>
-
     const characters = data ? [...data.characters.results] : null;
+
+    if(loading) return <div>Loading</div>
 
     return (
         <div className={style.wrapper}>
