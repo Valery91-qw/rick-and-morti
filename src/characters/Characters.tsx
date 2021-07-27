@@ -2,6 +2,7 @@ import React from "react";
 import {Character} from "./character/Character";
 import {CharactersType } from "../dal/graphql";
 import style from "./Characters.module.css"
+import { useHistory } from "react-router-dom";
 
 
 type CharactersPropsType = {
@@ -13,11 +14,15 @@ type CharactersPropsType = {
 
 export const Characters = ({currentPage, setCurrentPage, loading, data} : CharactersPropsType) => {
 
+    const history = useHistory()
+
     const nextPage = () => {
         setCurrentPage(currentPage + 1)
+        history.push(`/${currentPage + 1}`)
     }
     const prevPage = () => {
         setCurrentPage(currentPage - 1)
+        history.goBack()
     }
 
     const characters = data ? [...data.characters.results] : null;
